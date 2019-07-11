@@ -66,6 +66,22 @@ class ElementaryType(Type):
             return int(t[len('bytes'):])
         return None
 
+    @property
+    def is_int(self):
+        return self._type in Int
+
+    @property
+    def is_uint(self):
+        return self._type in Uint
+
+    @property
+    def is_bytes(self):
+        return self._type in Byte
+
+    @property
+    def is_fixed_bytes(self):
+        return self._type.startswith('bytes')
+
     def __str__(self):
         return self._type
 
